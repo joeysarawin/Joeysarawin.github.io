@@ -42,31 +42,34 @@ a {
 .space-background {
   position: fixed;
   inset: 0;
+
   z-index: 0;
+
   overflow: hidden;
   pointer-events: none;
-background:
-  radial-gradient(
-    ellipse at 22% 72%,
-    rgba(210, 120, 255, 0.12) 0%,
-    rgba(120, 60, 255, 0.06) 24%,
-    transparent 58%
-  ),
 
-  radial-gradient(
-    ellipse at 78% 34%,
-    rgba(140, 90, 255, 0.08) 0%,
-    rgba(70, 30, 160, 0.04) 26%,
-    transparent 60%
-  ),
+  background:
+    radial-gradient(
+      ellipse at 22% 72%,
+      rgba(210, 120, 255, 0.12) 0%,
+      rgba(120, 60, 255, 0.06) 24%,
+      transparent 58%
+    ),
 
-  linear-gradient(
-    180deg,
-    #010003 0%,
-    #05010d 44%,
-    #090214 100%
-  );
-);}
+    radial-gradient(
+      ellipse at 78% 34%,
+      rgba(140, 90, 255, 0.08) 0%,
+      rgba(70, 30, 160, 0.04) 26%,
+      transparent 60%
+    ),
+
+    linear-gradient(
+      180deg,
+      #010003 0%,
+      #05010d 44%,
+      #090214 100%
+    );
+}
 
 /* Dark edges */
 .space-background::before {
