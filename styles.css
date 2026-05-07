@@ -233,7 +233,7 @@ a {
     );
 
   transform:
-    rotate(-25deg);
+    rotate(25deg);
 
   animation:
     shootingStar linear infinite;
