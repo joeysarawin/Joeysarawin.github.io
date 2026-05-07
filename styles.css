@@ -844,69 +844,38 @@ h3 {
 
 .floating-nav {
   position: fixed;
-  top: 24px;
+
+  top: 32px;
   left: 50%;
 
   transform: translateX(-50%);
 
-  width: fit-content;
-  max-width: 92%;
-  
   display: flex;
   align-items: center;
   justify-content: center;
 
   gap: 42px;
+
+  width: fit-content;
+  max-width: 92%;
+
   padding: 20px 40px;
 
   border-radius: 999px;
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(16, 10, 35, 0.72),
-      rgba(8, 4, 20, 0.58)
-    );
+    rgba(10, 6, 24, 0.72);
 
-  border: 1px solid rgba(200, 160, 255, 0.18);
+  border:
+    1px solid rgba(255,255,255,0.08);
 
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.03),
     0 10px 40px rgba(0,0,0,0.42),
-    0 0 40px rgba(140, 90, 255, 0.12);
+    0 0 40px rgba(140, 90, 255, 0.08);
 
   backdrop-filter: blur(18px);
 
-  z-index: 100;
-}
-
-/* Navbar glow */
-
-.floating-nav::before {
-  content: "";
-
-  position: absolute;
-  inset: -1px;
-
-  border-radius: inherit;
-
-  padding: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(120,80,255,0.08),
-      rgba(255,120,220,0.24),
-      rgba(120,80,255,0.08)
-    );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-
-  pointer-events: none;
+  z-index: 9999;
 }
 
 /* Brand */
