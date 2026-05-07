@@ -987,6 +987,23 @@ h3 {
 .nav-links a:hover::after {
   transform: scaleX(1);
 }
+/* Active page */
+
+.nav-links a.active {
+  color: #ffffff;
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.95),
+      transparent
+    );
+}
 
 /* Mobile */
 
