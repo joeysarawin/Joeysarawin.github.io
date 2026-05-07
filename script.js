@@ -112,3 +112,50 @@ window.addEventListener("scroll", () => {
   });
 
 });
+
+/* Click sparks */
+
+window.addEventListener("click", (event) => {
+
+  for (let i = 0; i < 12; i++) {
+
+    const spark =
+      document.createElement("div");
+
+    spark.classList.add(
+      "click-spark"
+    );
+
+    spark.style.left =
+      `${event.clientX}px`;
+
+    spark.style.top =
+      `${event.clientY}px`;
+
+    const angle =
+      Math.random() * Math.PI * 2;
+
+    const force =
+      Math.random() * 1 + 0.4;
+
+    spark.style.setProperty(
+      "--x",
+      Math.cos(angle) * force
+    );
+
+    spark.style.setProperty(
+      "--y",
+      Math.sin(angle) * force
+    );
+
+    document.body.appendChild(
+      spark
+    );
+
+    setTimeout(() => {
+      spark.remove();
+    }, 700);
+
+  }
+
+});
