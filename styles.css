@@ -1,15 +1,14 @@
 :root {
   --void: #05020d;
-  --deep: #110822;
-  --panel: rgba(15, 10, 31, 0.68);
-  --panel-strong: rgba(20, 13, 42, 0.86);
-  --line: rgba(210, 196, 255, 0.18);
-  --text: #f6f2ff;
-  --muted: #c4b7da;
-  --violet: #9f7cff;
-  --cyan: #63e6ff;
-  --rose: #ff72b6;
-  --gold: #f6d06f;
+  --deep: #10031f;
+  --panel: rgba(15, 10, 31, 0.7);
+  --line: rgba(220, 204, 255, 0.18);
+  --text: #f8f3ff;
+  --muted: #c7b8dc;
+  --violet: #9d63ff;
+  --cyan: #69e8ff;
+  --rose: #ff72d2;
+  --gold: #f7d36b;
 }
 
 * {
@@ -27,10 +26,8 @@ body {
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0;
-  background:
-    linear-gradient(140deg, rgba(99, 230, 255, 0.12), transparent 32%),
-    linear-gradient(300deg, rgba(255, 114, 182, 0.11), transparent 44%),
-    linear-gradient(180deg, var(--void), var(--deep) 54%, #080312);
+  background: var(--void);
+  overflow-x: hidden;
 }
 
 a {
@@ -38,25 +35,152 @@ a {
   text-decoration: none;
 }
 
-.space-scene {
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Simple space background: stars, two nebula clouds, dark edges, and planets. */
+.space-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: var(--void);
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, #03010a 0%, #080216 42%, #120322 72%, #05020d 100%);
+}
+
+.space-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 48%, transparent 0 24%, rgba(0, 0, 0, 0.42) 72%),
+    linear-gradient(90deg, rgba(4, 1, 10, 0.86), transparent 38%, rgba(4, 1, 10, 0.62));
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(211, 135, 255, 0.9);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star.bright {
+  width: 3px;
+  height: 3px;
+  background: #fff8ff;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 22px rgba(186, 82, 255, 0.9);
+}
+
+.nebula {
+  position: absolute;
+  filter: blur(18px);
+  opacity: 0.82;
+  mix-blend-mode: screen;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+/* Nebula made from layered radial gradients. Each blob is just color fading to transparent. */
+.nebula-left {
+  left: -16vw;
+  bottom: -18vh;
+  width: 72vw;
+  height: 86vh;
+  border-radius: 48%;
+  background:
+    radial-gradient(circle at 42% 68%, rgba(255, 219, 255, 0.88) 0 3%, rgba(255, 113, 225, 0.55) 7%, transparent 18%),
+    radial-gradient(ellipse at 34% 70%, rgba(180, 72, 255, 0.68) 0 20%, transparent 52%),
+    radial-gradient(ellipse at 24% 44%, rgba(117, 62, 255, 0.42) 0 22%, transparent 58%),
+    radial-gradient(ellipse at 58% 32%, rgba(255, 72, 204, 0.22) 0 18%, transparent 56%);
+  transform: rotate(-13deg);
+}
+
+.nebula-right {
+  right: -20vw;
+  top: 2vh;
+  width: 80vw;
+  height: 88vh;
+  border-radius: 48%;
+  background:
+    radial-gradient(circle at 42% 52%, rgba(255, 223, 255, 0.72) 0 2%, rgba(194, 95, 255, 0.5) 7%, transparent 18%),
+    radial-gradient(ellipse at 48% 58%, rgba(158, 83, 255, 0.7) 0 24%, transparent 62%),
+    radial-gradient(ellipse at 72% 30%, rgba(88, 76, 255, 0.44) 0 22%, transparent 58%),
+    radial-gradient(ellipse at 28% 22%, rgba(255, 102, 223, 0.24) 0 14%, transparent 48%);
+  transform: rotate(-21deg);
+  animation-duration: 22s;
+}
+
+.space-cloud {
+  position: absolute;
+  filter: blur(10px);
+  opacity: 0.92;
+  background:
+    radial-gradient(circle at 16% 70%, rgba(6, 2, 15, 0.98) 0 12%, transparent 22%),
+    radial-gradient(circle at 32% 64%, rgba(9, 3, 20, 0.98) 0 15%, transparent 27%),
+    radial-gradient(circle at 54% 72%, rgba(7, 2, 18, 0.98) 0 14%, transparent 26%),
+    radial-gradient(circle at 74% 58%, rgba(10, 3, 24, 0.98) 0 16%, transparent 30%);
+}
+
+.cloud-left {
+  left: -12vw;
+  bottom: -15vh;
+  width: 62vw;
+  height: 38vh;
+}
+
+.cloud-right {
+  right: -12vw;
+  bottom: -12vh;
+  width: 66vw;
+  height: 45vh;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 202, 255, 0.25), transparent 18%),
+    radial-gradient(circle at 65% 70%, #06020d 0 48%, #16072a 72%, #2b0b4d 100%);
+  box-shadow:
+    inset -14px -10px 20px rgba(0, 0, 0, 0.62),
+    0 0 16px rgba(199, 85, 255, 0.38);
+}
+
+.planet-small {
+  top: 18%;
+  left: 8%;
+  width: 30px;
+  height: 30px;
+}
+
+.planet-large {
+  right: 9%;
+  top: 52%;
+  width: 68px;
+  height: 68px;
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(5, 2, 13, 0.72), transparent 46%, rgba(5, 2, 13, 0.36)),
-    linear-gradient(180deg, rgba(5, 2, 13, 0.24), transparent 42%, rgba(5, 2, 13, 0.82));
+    linear-gradient(180deg, rgba(5, 2, 13, 0.12), transparent 44%, rgba(5, 2, 13, 0.78)),
+    linear-gradient(90deg, rgba(5, 2, 13, 0.52), transparent 42%, rgba(5, 2, 13, 0.38));
 }
 
 .site-header {
@@ -71,8 +195,8 @@ body::before {
   gap: 24px;
   min-height: 72px;
   padding: 18px clamp(20px, 6vw, 72px);
-  background: rgba(5, 2, 13, 0.58);
-  border-bottom: 1px solid rgba(210, 196, 255, 0.12);
+  background: rgba(5, 2, 13, 0.56);
+  border-bottom: 1px solid rgba(220, 204, 255, 0.14);
   backdrop-filter: blur(18px);
 }
 
@@ -102,7 +226,7 @@ body::before {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--text);
-  background: rgba(159, 124, 255, 0.14);
+  background: rgba(157, 99, 255, 0.16);
   outline: none;
 }
 
@@ -200,7 +324,7 @@ h3 {
 
 .button.primary {
   color: #080312;
-  background: linear-gradient(90deg, var(--cyan), #d7c2ff);
+  background: linear-gradient(90deg, var(--cyan), #e3c4ff);
 }
 
 .button.secondary {
@@ -215,7 +339,7 @@ h3 {
   bottom: 24px;
   width: 16px;
   height: 28px;
-  border: 1px solid rgba(246, 242, 255, 0.42);
+  border: 1px solid rgba(248, 243, 255, 0.42);
   border-radius: 8px;
   transform: translateX(-50%);
 }
@@ -234,7 +358,7 @@ h3 {
 
 .section {
   padding: 78px 0;
-  border-top: 1px solid rgba(210, 196, 255, 0.12);
+  border-top: 1px solid rgba(220, 204, 255, 0.14);
 }
 
 .section-heading {
@@ -255,7 +379,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    linear-gradient(140deg, rgba(159, 124, 255, 0.18), rgba(99, 230, 255, 0.05)),
+    linear-gradient(140deg, rgba(157, 99, 255, 0.18), rgba(105, 232, 255, 0.05)),
     var(--panel);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
 }
@@ -292,7 +416,7 @@ h3 {
   margin: 0;
   padding: 24px;
   border-left: 2px solid var(--rose);
-  background: rgba(5, 2, 13, 0.32);
+  background: rgba(5, 2, 13, 0.34);
 }
 
 .contact-section {
@@ -316,6 +440,40 @@ h3 {
 .contact-link:focus-visible {
   color: var(--cyan);
   outline: none;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.45);
+  }
+}
+
+@keyframes drift {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 22px -16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .star,
+  .nebula {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -378,6 +536,11 @@ h3 {
 
   .project-card {
     min-height: 214px;
+  }
+
+  .planet-large {
+    width: 46px;
+    height: 46px;
   }
 
   .contact-link {
