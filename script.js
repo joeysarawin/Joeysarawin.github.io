@@ -1,15 +1,16 @@
-const stars = document.getElementById("stars");
-const mouseTrail = document.getElementById("mouse-trail");
-
-const totalStars = window.innerWidth < 640 ? 130 : 260;
-const starColors = ["cool", "warm", "soft"];
+/* Stars */
 
 const starsContainer =
   document.getElementById("stars");
 
-/* Small stars */
+const totalStars =
+  window.innerWidth < 640
+    ? 130
+    : 260;
 
-for (let i = 0; i < 260; i++) {
+/* Generate stars */
+
+for (let i = 0; i < totalStars; i++) {
 
   const star =
     document.createElement("div");
@@ -70,39 +71,13 @@ for (let i = 0; i < 6; i++) {
   );
 }
 
-/* Cursor glow */
-const glow = document.createElement("div");
-glow.className = "cursor-glow";
+/* Active navbar section */
 
-mouseTrail.appendChild(glow);
+const sections =
+  document.querySelectorAll("section[id]");
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-
-let currentX = mouseX;
-let currentY = mouseY;
-
-window.addEventListener("pointermove", (event) => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-});
-
-function animateGlow() {
-  currentX += (mouseX - currentX) * 0.12;
-  currentY += (mouseY - currentY) * 0.12;
-
-  glow.style.left = `${currentX}px`;
-  glow.style.top = `${currentY}px`;
-
-  requestAnimationFrame(animateGlow);
-}
-
-animateGlow();
-
-// Active navbar section
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+const navLinks =
+  document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
 
@@ -110,11 +85,15 @@ window.addEventListener("scroll", () => {
 
   sections.forEach(section => {
 
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
+    const sectionTop =
+      section.offsetTop;
 
-    if (pageYOffset >= sectionTop - 160) {
-      current = section.getAttribute("id");
+    if (
+      window.scrollY >=
+      sectionTop - 160
+    ) {
+      current =
+        section.getAttribute("id");
     }
 
   });
@@ -123,7 +102,10 @@ window.addEventListener("scroll", () => {
 
     link.classList.remove("active");
 
-    if (link.getAttribute("href") === `#${current}`) {
+    if (
+      link.getAttribute("href") ===
+      `#${current}`
+    ) {
       link.classList.add("active");
     }
 
