@@ -1019,6 +1019,8 @@ padding: 42px;
   width:
     min(100% - 140px, 1400px);
 
+  min-height: 70vh;
+
   margin:
     0 auto;
 
