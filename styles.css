@@ -1033,23 +1033,18 @@ padding: 42px;
 /* Contact grid */
 
 .contact-grid {
-  display: grid;
+  display: flex;
 
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(280px, 1fr)
-    );
-
-  gap: 28px;
+  justify-content: flex-start;
 
   margin-top: 50px;
 }
-
 /* Contact card */
 
 .contact-card {
   position: relative;
+  max-width: 520px;
+  width: 100%;
 
   padding:
     42px 36px;
@@ -1080,7 +1075,7 @@ padding: 42px;
 
 .contact-card::before {
   content: "";
-
+  
   position: absolute;
 
   inset: 0;
