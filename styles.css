@@ -861,6 +861,9 @@ h3 {
 
   padding: 20px 40px;
 
+  background: red !important;
+  outline: 5px solid lime;
+
   border-radius: 999px;
 
   background:
