@@ -470,7 +470,7 @@ main {
   display: grid;
   align-items: start;
   min-height: 88svh;
-  padding: 150px 0 40px;
+  padding: 250px 0 40px;
 }
 
 .hero-copy {
