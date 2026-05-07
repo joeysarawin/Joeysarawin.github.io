@@ -1063,10 +1063,10 @@ h3 {
 }
   /* Footer */
 
-.footer {
+  .footer {
   position: relative;
 
-  width: min(100% - 48px, 1400px);
+  width: min(calc(100% - 48px), 1400px);
 
   margin:
     140px auto 48px;
