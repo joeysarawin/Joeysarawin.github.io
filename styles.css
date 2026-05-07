@@ -302,7 +302,7 @@ a {
     transform:
       translateX(0)
       translateY(0)
-      rotate(-25deg);
+      rotate(25deg);
 
     opacity: 0;
   }
@@ -319,7 +319,7 @@ a {
     transform:
       translateX(-1200px)
       translateY(420px)
-      rotate(-25deg);
+      rotate(25deg);
 
     opacity: 0;
   }
