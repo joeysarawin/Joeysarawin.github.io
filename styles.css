@@ -7,6 +7,7 @@
 
   --purple: #a855f7;
   --cyan: #67e8f9;
+  --gold: #f4c56a;
 }
 
 * {
@@ -435,13 +436,15 @@ h1 {
 .experience-label {
   margin: 0 0 18px;
 
-  color: var(--cyan);
+  color: var(--gold);
 
   font-size: 0.9rem;
   font-weight: 700;
 
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+
+  opacity: 0.92;
 }
 
 .experience-header h2 {
@@ -480,6 +483,8 @@ h1 {
 
   overflow: hidden;
 
+  isolation: isolate;
+
   min-height: 320px;
 
   padding: 38px;
@@ -489,8 +494,8 @@ h1 {
   background:
     linear-gradient(
       180deg,
-      rgba(18,10,38,0.88),
-      rgba(8,4,20,0.94)
+      rgba(22,12,48,0.92),
+      rgba(8,4,20,0.96)
     );
 
   border:
@@ -504,16 +509,41 @@ h1 {
     box-shadow 220ms ease;
 }
 
+.experience-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 72%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(244,197,106,0.75),
+      transparent
+    );
+
+  opacity: 0.8;
+}
+
 .experience-card:hover {
   transform:
     translateY(-8px);
 
   border-color:
-    rgba(180,120,255,0.32);
+    rgba(244,197,106,0.22);
 
   box-shadow:
-    0 20px 80px rgba(0,0,0,0.42),
-    0 0 40px rgba(140,90,255,0.14);
+    0 24px 80px rgba(0,0,0,0.5),
+    0 0 50px rgba(140,90,255,0.16),
+    0 0 24px rgba(244,197,106,0.08);
 }
 
 /* Glow */
@@ -561,23 +591,28 @@ h1 {
   align-items: center;
   justify-content: center;
 
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
   background:
-    rgba(255,255,255,0.05);
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.03)
+    );
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(244,197,106,0.18);
 
-  color: #ffffff;
+  color: var(--gold);
 
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 
   box-shadow:
-    inset 0 0 20px rgba(255,255,255,0.03);
+    inset 0 0 20px rgba(255,255,255,0.03),
+    0 0 30px rgba(244,197,106,0.08);
 }
 
 /* Content */
@@ -592,15 +627,16 @@ h1 {
 .experience-number {
   display: inline-block;
 
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 
-  color:
-    rgba(255,255,255,0.38);
+  color: var(--gold);
 
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 700;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
+
+  opacity: 0.92;
 }
 
 .experience-content h3 {
@@ -630,8 +666,8 @@ h1 {
 
   margin-top: 30px;
 
-  color: var(--cyan);
-
+color: var(--gold);
+  
   font-size: 0.95rem;
   font-weight: 600;
 
