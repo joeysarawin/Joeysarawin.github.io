@@ -841,10 +841,10 @@ h3 {
 }
 
 /* Floating navigation */
-/* Floating navigation */
 
 .floating-nav {
   position: fixed;
+
   top: 32px;
   left: 50%;
 
@@ -854,30 +854,29 @@ h3 {
   align-items: center;
   justify-content: center;
 
-  gap: 42px;
+  gap: 36px;
+
+  padding: 18px 34px;
 
   width: fit-content;
   max-width: 92%;
-
-  padding: 20px 40px;
 
   border-radius: 999px;
 
   background: rgba(10, 6, 24, 0.72);
 
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.08);
 
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04),
     0 10px 40px rgba(0,0,0,0.42),
-    0 0 24px rgba(140,90,255,0.16);
+    0 0 24px rgba(140,90,255,0.14);
 
   backdrop-filter: blur(18px);
 
   z-index: 9999;
 }
 
-/* Brand */
+/* Logo orb */
 
 .nav-brand {
   display: flex;
@@ -887,29 +886,24 @@ h3 {
   text-decoration: none;
 }
 
-/* Orbit */
-
 .brand-orbit {
   width: 18px;
   height: 18px;
 
   border-radius: 50%;
 
-  border: 2px solid rgba(210,160,255,0.9);
-
-  box-shadow:
-    0 0 12px rgba(180,120,255,0.7),
-    inset 0 0 8px rgba(255,255,255,0.25);
+  border: 2px solid rgba(210,160,255,0.92);
 
   background:
     radial-gradient(
       circle,
-      rgba(255,255,255,0.22) 0%,
-      rgba(180,120,255,0.08) 60%,
-      transparent 100%
+      rgba(255,255,255,0.24),
+      rgba(180,120,255,0.08)
     );
 
-  flex-shrink: 0;
+  box-shadow:
+    0 0 14px rgba(180,120,255,0.65),
+    inset 0 0 8px rgba(255,255,255,0.22);
 }
 
 /* Links */
@@ -918,18 +912,18 @@ h3 {
   display: flex;
   align-items: center;
 
-  gap: 28px;
+  gap: 26px;
 }
 
 .nav-links a {
   position: relative;
 
-  color: rgba(245,243,255,0.76);
-
-  font-size: 1.04rem;
-  font-weight: 500;
+  color: rgba(245,243,255,0.74);
 
   text-decoration: none;
+
+  font-size: 1rem;
+  font-weight: 500;
 
   transition: color 180ms ease;
 }
@@ -945,7 +939,7 @@ h3 {
   position: absolute;
 
   left: 0;
-  bottom: -10px;
+  bottom: -8px;
 
   width: 100%;
   height: 1px;
@@ -954,13 +948,13 @@ h3 {
     linear-gradient(
       90deg,
       transparent,
-      rgba(255,255,255,0.95),
+      rgba(255,255,255,0.92),
       transparent
     );
 
   transform: scaleX(0);
 
-  transition: transform 220ms ease;
+  transition: transform 180ms ease;
 }
 
 .nav-links a:hover::after,
