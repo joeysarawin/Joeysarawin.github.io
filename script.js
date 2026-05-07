@@ -29,7 +29,7 @@ for (let i = 0; i < totalStars; i += 1) {
 
 function makeTrailDot(x, y) {
   const dot = document.createElement("span");
-  const size = Math.random() * 40 + 30;
+  const size = Math.random() * 16 + 10;
 
   dot.className = "trail-dot";
   dot.style.left = `${x}px`;
@@ -46,7 +46,7 @@ function makeTrailDot(x, y) {
 window.addEventListener("pointermove", (event) => {
   const now = Date.now();
 
-  if (now - lastTrailTime > 28) {
+  if (now - lastTrailTime > 70) {
     makeTrailDot(event.clientX, event.clientY);
     lastTrailTime = now;
   }
