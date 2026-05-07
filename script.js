@@ -29,7 +29,7 @@ for (let i = 0; i < totalStars; i += 1) {
 
 function makeTrailDot(x, y) {
   const dot = document.createElement("span");
-  const size = Math.random() * 12 + 8;
+  const size = Math.random() * 40 + 30;
 
   dot.className = "trail-dot";
   dot.style.left = `${x}px`;
