@@ -317,7 +317,7 @@ a {
 
   100% {
     transform:
-      translateX(-1200px)
+      translateX(1200px)
       translateY(420px)
       rotate(25deg);
 
