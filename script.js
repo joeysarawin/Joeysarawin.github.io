@@ -4,28 +4,70 @@ const mouseTrail = document.getElementById("mouse-trail");
 const totalStars = window.innerWidth < 640 ? 130 : 260;
 const starColors = ["cool", "warm", "soft"];
 
-/* Star field */
-for (let i = 0; i < totalStars; i += 1) {
-  const star = document.createElement("span");
-  const size = Math.random() * 2 + 0.7;
-  const color = starColors[Math.floor(Math.random() * starColors.length)];
+const starsContainer =
+  document.getElementById("stars");
 
-  star.className = `star ${color}`;
-  star.style.left = `${Math.random() * 100}%`;
-  star.style.top = `${Math.random() * 100}%`;
-  star.style.setProperty("--star-size", `${size}px`);
-  star.style.animationDelay = `${Math.random() * 4}s`;
-  star.style.animationDuration = `${Math.random() * 4 + 3}s`;
+/* Small stars */
 
-  if (Math.random() > 0.78) {
-    star.classList.add("big");
-  }
+for (let i = 0; i < 260; i++) {
+
+  const star =
+    document.createElement("div");
+
+  star.classList.add("star");
 
   if (Math.random() > 0.94) {
-    star.classList.add("bright");
+    star.classList.add("large");
   }
 
-  stars.appendChild(star);
+  const size =
+    Math.random() > 0.94
+      ? Math.random() * 4 + 2
+      : Math.random() * 2 + 0.6;
+
+  star.style.width = `${size}px`;
+  star.style.height = `${size}px`;
+
+  star.style.top =
+    `${Math.random() * 100}%`;
+
+  star.style.left =
+    `${Math.random() * 100}%`;
+
+  star.style.setProperty(
+    "--twinkle-duration",
+    `${Math.random() * 4 + 2}s`
+  );
+
+  starsContainer.appendChild(star);
+}
+
+/* Shooting stars */
+
+for (let i = 0; i < 6; i++) {
+
+  const shootingStar =
+    document.createElement("div");
+
+  shootingStar.classList.add(
+    "shooting-star"
+  );
+
+  shootingStar.style.top =
+    `${Math.random() * 60}%`;
+
+  shootingStar.style.left =
+    `${Math.random() * 100}%`;
+
+  shootingStar.style.animationDuration =
+    `${Math.random() * 4 + 4}s`;
+
+  shootingStar.style.animationDelay =
+    `${Math.random() * 8}s`;
+
+  starsContainer.appendChild(
+    shootingStar
+  );
 }
 
 /* Cursor glow */
