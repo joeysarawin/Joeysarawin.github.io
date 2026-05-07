@@ -180,6 +180,67 @@ a {
   height: 24px;
 }
 
+/* Mouse star */
+.mouse-star {
+  position: absolute;
+  z-index: 11;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  background: #fffaff;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 28px rgba(133, 236, 255, 0.95),
+    0 0 48px rgba(255, 125, 222, 0.65);
+  transform: translate(-50%, -50%);
+  transition: opacity 180ms ease;
+}
+
+.mouse-star::before,
+.mouse-star::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: rgba(255, 250, 255, 0.88);
+  transform: translate(-50%, -50%);
+}
+
+.mouse-star::before {
+  width: 34px;
+  height: 1px;
+}
+
+.mouse-star::after {
+  width: 1px;
+  height: 34px;
+}
+
+.mouse-trail {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.trail-dot {
+  position: absolute;
+  width: var(--trail-size);
+  height: var(--trail-size);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 18%, rgba(133, 236, 255, 0.78) 38%, rgba(255, 125, 222, 0.32) 62%, transparent 74%);
+  box-shadow:
+    0 0 12px rgba(133, 236, 255, 0.72),
+    0 0 24px rgba(255, 125, 222, 0.38);
+  transform: translate(-50%, -50%);
+  animation: fade-trail 700ms ease-out forwards;
+}
+
 /* Big glows */
 .space-glow {
   position: absolute;
@@ -638,14 +699,32 @@ h3 {
   }
 }
 
+@keyframes fade-trail {
+  from {
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.22);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .star,
-  .nebula {
+  .nebula,
+  .trail-dot {
     animation: none;
+  }
+
+  .mouse-star,
+  .mouse-trail {
+    display: none;
   }
 }
 

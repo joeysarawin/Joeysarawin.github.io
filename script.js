@@ -1,6 +1,9 @@
 const stars = document.getElementById("stars");
+const mouseStar = document.getElementById("mouse-star");
+const mouseTrail = document.getElementById("mouse-trail");
 const totalStars = window.innerWidth < 640 ? 130 : 260;
 const starColors = ["cool", "warm", "soft"];
+let lastTrailTime = 0;
 
 for (let i = 0; i < totalStars; i += 1) {
   const star = document.createElement("span");
@@ -24,3 +27,36 @@ for (let i = 0; i < totalStars; i += 1) {
 
   stars.appendChild(star);
 }
+
+function makeTrailDot(x, y) {
+  const dot = document.createElement("span");
+  const size = Math.random() * 12 + 8;
+
+  dot.className = "trail-dot";
+  dot.style.left = `${x}px`;
+  dot.style.top = `${y}px`;
+  dot.style.setProperty("--trail-size", `${size}px`);
+
+  mouseTrail.appendChild(dot);
+
+  setTimeout(() => {
+    dot.remove();
+  }, 700);
+}
+
+window.addEventListener("pointermove", (event) => {
+  mouseStar.style.opacity = "1";
+  mouseStar.style.left = `${event.clientX}px`;
+  mouseStar.style.top = `${event.clientY}px`;
+
+  const now = Date.now();
+
+  if (now - lastTrailTime > 28) {
+    makeTrailDot(event.clientX, event.clientY);
+    lastTrailTime = now;
+  }
+});
+
+window.addEventListener("pointerleave", () => {
+  mouseStar.style.opacity = "0";
+});
