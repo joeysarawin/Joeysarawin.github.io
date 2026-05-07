@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A deep-space purple portfolio built for GitHub Pages.">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas class="space-scene" id="space-scene" aria-hidden="true"></canvas>
+
+  <header class="site-header" aria-label="Primary">
+    <a class="brand" href="#home">Portfolio</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Deep Space Portfolio</p>
+        <h1>Selected work from the far side of the signal.</h1>
+        <p class="hero-text">A sharp, cinematic home for projects, experiments, and everything worth sending across the void.</p>
+        <div class="hero-actions" aria-label="Hero actions">
+          <a class="button primary" href="#work">View Work</a>
+          <a class="button secondary" href="#contact">Start Contact</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#work" aria-label="Skip to work"></a>
+    </section>
+
+    <section class="section work-section" id="work">
+      <div class="section-heading">
+        <p class="eyebrow">Orbit One</p>
+        <h2>Featured Work</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <p class="project-kicker">Interface</p>
+          <h3>Project Alpha</h3>
+          <p>Replace this with a short line about the project, the goal, and what made it useful.</p>
+        </article>
+        <article class="project-card">
+          <p class="project-kicker">System</p>
+          <h3>Project Vector</h3>
+          <p>Drop in a compact case-study summary that gives people a reason to keep scrolling.</p>
+        </article>
+        <article class="project-card">
+          <p class="project-kicker">Experiment</p>
+          <h3>Project Halo</h3>
+          <p>Use this slot for a visual build, prototype, tool, or anything with a little gravity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">Orbit Two</p>
+        <h2>About</h2>
+      </div>
+      <p class="about-copy">Use this space for the human part: what you make, what you care about, and the kind of work you want more of.</p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Transmission</p>
+        <h2>Contact</h2>
+      </div>
+      <a class="contact-link" href="mailto:hello@example.com">hello@example.com</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
