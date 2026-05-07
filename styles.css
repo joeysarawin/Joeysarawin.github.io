@@ -159,34 +159,111 @@ body {
   opacity: 0.9;
 }
 
-/* Dense stars */
+/* Stars */
 
 .stars {
   position: absolute;
 
   inset: 0;
 
-  background-image:
-
-    radial-gradient(circle, rgba(255,255,255,0.95) 0 1px, transparent 2px),
-
-    radial-gradient(circle, rgba(255,210,120,0.9) 0 1px, transparent 2px),
-
-    radial-gradient(circle, rgba(196,120,255,0.75) 0 1px, transparent 2px);
-
-  background-size:
-    220px 220px,
-    340px 340px,
-    460px 460px;
-
-  background-position:
-    20px 40px,
-    120px 180px,
-    60px 90px;
-
-  opacity: 0.85;
+  overflow: hidden;
 }
 
+.star {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: white;
+
+  opacity: 0.8;
+
+  animation:
+    twinkle var(--twinkle-duration) ease-in-out infinite;
+}
+
+/* Large stars */
+
+.star.large {
+  background:
+    rgba(255, 215, 140, 0.95);
+
+  box-shadow:
+    0 0 12px rgba(255, 210, 120, 0.8),
+    0 0 24px rgba(180, 120, 255, 0.35);
+}
+/* Shooting stars */
+
+.shooting-star {
+  position: absolute;
+
+  width: 160px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0),
+      rgba(255,220,160,1)
+    );
+
+  border-radius: 999px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(0 0 10px rgba(255,220,160,0.8));
+
+  transform:
+    rotate(-25deg);
+
+  animation:
+    shootingStar linear infinite;
+}
+
+/* Twinkle animation */
+
+@keyframes twinkle {
+
+  0%, 100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Shooting star animation */
+
+@keyframes shootingStar {
+
+  0% {
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(-25deg);
+
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateX(-900px)
+      translateY(340px)
+      rotate(-25deg);
+
+    opacity: 0;
+  }
+}
 /* Large cinematic glow */
 
 .hero::before {
