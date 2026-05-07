@@ -1,5 +1,4 @@
 const stars = document.getElementById("stars");
-const mouseStar = document.getElementById("mouse-star");
 const mouseTrail = document.getElementById("mouse-trail");
 const totalStars = window.innerWidth < 640 ? 130 : 260;
 const starColors = ["cool", "warm", "soft"];
@@ -45,18 +44,10 @@ function makeTrailDot(x, y) {
 }
 
 window.addEventListener("pointermove", (event) => {
-  mouseStar.style.opacity = "1";
-  mouseStar.style.left = `${event.clientX}px`;
-  mouseStar.style.top = `${event.clientY}px`;
-
   const now = Date.now();
 
   if (now - lastTrailTime > 28) {
     makeTrailDot(event.clientX, event.clientY);
     lastTrailTime = now;
   }
-});
-
-window.addEventListener("pointerleave", () => {
-  mouseStar.style.opacity = "0";
 });
