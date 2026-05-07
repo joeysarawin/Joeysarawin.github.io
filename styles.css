@@ -825,8 +825,9 @@ h3 {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
+  gap: 28px;
   padding: 16px 22px;
 
   border-radius: 999px;
