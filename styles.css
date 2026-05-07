@@ -168,10 +168,15 @@ a {
 
   inset: 0;
 
+  width: 100%;
+  height: 100%;
+
   overflow: hidden;
 
   z-index: 5;
 }
+
+/* Individual stars */
 
 .star {
   position: absolute;
@@ -182,12 +187,14 @@ a {
 
   opacity: 0.85;
 
+  z-index: 5;
+
   animation:
     twinkle var(--twinkle-duration)
     ease-in-out infinite;
 }
 
-/* Large stars */
+/* Large cinematic stars */
 
 .star.large {
   background:
@@ -272,6 +279,50 @@ a {
     1px solid rgba(255,208,120,0.16);
 
   border-radius: 50%;
+}
+
+/* Twinkle animation */
+
+@keyframes twinkle {
+
+  0%, 100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Shooting star animation */
+
+@keyframes shootingStar {
+
+  0% {
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(-25deg);
+
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateX(-1200px)
+      translateY(420px)
+      rotate(-25deg);
+
+    opacity: 0;
+  }
 }
 
 /* Main */
