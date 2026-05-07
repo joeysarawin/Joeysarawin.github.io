@@ -180,7 +180,7 @@ a {
   height: 24px;
 }
 
-/* Mouse trail */
+/* Cursor glow */
 .mouse-trail {
   position: fixed;
   inset: 0;
@@ -188,28 +188,28 @@ a {
   pointer-events: none;
 }
 
-.trail-dot {
+.cursor-glow {
   position: absolute;
-  width: var(--trail-size);
-  height: 1px;
-  border-radius: 999px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
 
   background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0),
-      rgba(192,132,252,0.9),
-      rgba(255,255,255,1)
+    radial-gradient(
+      circle,
+      rgba(192,132,252,0.22) 0%,
+      rgba(168,85,247,0.14) 35%,
+      transparent 72%
     );
 
-  box-shadow:
-    0 0 6px rgba(192,132,252,0.5),
-    0 0 12px rgba(232,121,249,0.25);
+  filter: blur(18px);
 
-  transform-origin: left center;
-  transform: translate(-50%, -50%) rotate(-25deg);
+  transform: translate(-50%, -50%);
+  transition:
+    transform 120ms ease-out,
+    opacity 220ms ease;
 
-  animation: shooting-star 700ms ease-out forwards;
+  opacity: 0.9;
 }
 
 /* Big glows */
