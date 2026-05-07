@@ -849,8 +849,8 @@ h3 {
   align-items: center;
   justify-content: center;
 
-  gap: 36px;
-  padding: 16px 28px;
+  gap: 42px;
+  padding: 20px 40px;
 
   border-radius: 999px;
 
@@ -926,15 +926,15 @@ h3 {
 .brand-orbit {
   position: relative;
 
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 
   border-radius: 50%;
 
   border: 1px solid rgba(196,132,252,0.9);
 
   box-shadow:
-    0 0 12px rgba(192,132,252,0.55);
+    0 0 18px rgba(192,132,252,0.68);
 }
 
 .brand-orbit::before {
@@ -967,8 +967,9 @@ h3 {
 
   color: rgba(245,243,255,0.72);
 
-  font-size: 0.92rem;
+  font-size: 1.04rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
 
   text-decoration: none;
 
