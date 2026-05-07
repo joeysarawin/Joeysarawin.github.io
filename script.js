@@ -1,9 +1,10 @@
 const stars = document.getElementById("stars");
 const mouseTrail = document.getElementById("mouse-trail");
+
 const totalStars = window.innerWidth < 640 ? 130 : 260;
 const starColors = ["cool", "warm", "soft"];
-let lastTrailTime = 0;
 
+/* Star field */
 for (let i = 0; i < totalStars; i += 1) {
   const star = document.createElement("span");
   const size = Math.random() * 2 + 0.7;
@@ -27,27 +28,31 @@ for (let i = 0; i < totalStars; i += 1) {
   stars.appendChild(star);
 }
 
-function makeTrailDot(x, y) {
-  const dot = document.createElement("span");
-  const size = Math.random() * 16 + 10;
+/* Cursor glow */
+const glow = document.createElement("div");
+glow.className = "cursor-glow";
 
-  dot.className = "trail-dot";
-  dot.style.left = `${x}px`;
-  dot.style.top = `${y}px`;
-  dot.style.setProperty("--trail-size", `${size}px`);
+mouseTrail.appendChild(glow);
 
-  mouseTrail.appendChild(dot);
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-  setTimeout(() => {
-    dot.remove();
-  }, 700);
-}
+let currentX = mouseX;
+let currentY = mouseY;
 
 window.addEventListener("pointermove", (event) => {
-  const now = Date.now();
-
-  if (now - lastTrailTime > 70) {
-    makeTrailDot(event.clientX, event.clientY);
-    lastTrailTime = now;
-  }
+  mouseX = event.clientX;
+  mouseY = event.clientY;
 });
+
+function animateGlow() {
+  currentX += (mouseX - currentX) * 0.12;
+  currentY += (mouseY - currentY) * 0.12;
+
+  glow.style.left = `${currentX}px`;
+  glow.style.top = `${currentY}px`;
+
+  requestAnimationFrame(animateGlow);
+}
+
+animateGlow();
