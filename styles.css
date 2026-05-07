@@ -79,35 +79,85 @@ a {
   inset: 0;
   z-index: 7;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.4px),
-    radial-gradient(circle, rgba(206, 126, 255, 0.82) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.3px);
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle, rgba(207, 136, 255, 0.78) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle, rgba(133, 236, 255, 0.58) 0 0.8px, transparent 1.5px);
   background-position:
-    0 0,
-    70px 40px,
-    130px 90px;
+    18px 12px,
+    90px 54px,
+    150px 104px;
   background-size:
-    170px 170px,
-    260px 260px,
-    380px 380px;
+    190px 190px,
+    285px 285px,
+    430px 430px;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.stars::before {
+  opacity: 0.72;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.82) 0 0.7px, transparent 1.3px),
+    radial-gradient(circle, rgba(255, 125, 222, 0.5) 0 0.8px, transparent 1.5px);
+  background-position:
+    42px 80px,
+    160px 30px;
+  background-size:
+    240px 240px,
+    360px 360px;
+}
+
+.stars::after {
+  opacity: 0.36;
+  background:
+    radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.32) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 34%, rgba(255, 255, 255, 0.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 52% 74%, rgba(207, 136, 255, 0.36) 0 1px, transparent 2px);
 }
 
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: var(--star-size);
+  height: var(--star-size);
   border-radius: 50%;
-  background: #fff8ff;
-  box-shadow: 0 0 8px rgba(205, 110, 255, 0.9);
+  background:
+    radial-gradient(circle, #ffffff 0 28%, rgba(255, 248, 255, 0.86) 36%, transparent 72%);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.72),
+    0 0 14px var(--star-glow);
   animation: twinkle 3s ease-in-out infinite;
 }
 
-.star.bright {
-  width: 3px;
-  height: 3px;
+.star.cool {
+  --star-glow: rgba(133, 236, 255, 0.78);
+}
+
+.star.warm {
+  --star-glow: rgba(255, 125, 222, 0.76);
+}
+
+.star.soft {
+  --star-glow: rgba(198, 135, 255, 0.62);
+  filter: blur(0.2px);
+}
+
+.star.big {
   box-shadow:
-    0 0 12px rgba(255, 255, 255, 0.95),
-    0 0 26px rgba(188, 83, 255, 0.9);
+    0 0 10px rgba(255, 255, 255, 0.82),
+    0 0 24px var(--star-glow);
+}
+
+.star.bright {
+  width: calc(var(--star-size) + 1px);
+  height: calc(var(--star-size) + 1px);
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.98),
+    0 0 30px var(--star-glow);
 }
 
 .star.bright::before,
@@ -121,13 +171,13 @@ a {
 }
 
 .star.bright::before {
-  width: 20px;
+  width: 24px;
   height: 1px;
 }
 
 .star.bright::after {
   width: 1px;
-  height: 20px;
+  height: 24px;
 }
 
 /* Big glows */
@@ -260,41 +310,6 @@ a {
 .starburst-right {
   right: 9%;
   top: 34%;
-}
-
-/* Planets */
-.planet {
-  position: absolute;
-  z-index: 8;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 28%, rgba(255, 211, 255, 0.34), transparent 16%),
-    radial-gradient(circle at 68% 72%, #030108 0 48%, #130720 72%, #35105d 100%);
-  box-shadow:
-    inset -16px -12px 22px rgba(0, 0, 0, 0.74),
-    0 0 18px rgba(199, 85, 255, 0.42);
-}
-
-.planet-left {
-  top: 18%;
-  left: 8%;
-  width: 28px;
-  height: 28px;
-}
-
-.planet-small {
-  right: 31%;
-  top: 18%;
-  width: 17px;
-  height: 17px;
-  opacity: 0.85;
-}
-
-.planet-right {
-  right: 8%;
-  top: 52%;
-  width: 70px;
-  height: 70px;
 }
 
 /* Dark clouds */
@@ -696,11 +711,6 @@ h3 {
 
   .project-card {
     min-height: 214px;
-  }
-
-  .planet-right {
-    width: 48px;
-    height: 48px;
   }
 
   .contact-link {
