@@ -661,11 +661,11 @@ h1 {
   position: relative;
 
   flex:
-    0 0 340px;
+  0 0 430px;
 
-  min-height: 240px;
+min-height: 320px;
 
-  padding: 30px;
+padding: 42px;
 
   border-radius: 28px;
 
@@ -731,24 +731,24 @@ h1 {
 }
 
 .experience-card h3 {
-  margin: 0 0 16px;
+  margin: 0 0 20px;
 
-  font-size: 1.45rem;
+  font-size: 2rem;
 
-  line-height: 1.2;
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
 }
-
 .experience-card p {
   margin: 0;
 
   color:
-    rgba(255,255,255,0.68);
+    rgba(255,255,255,0.72);
 
-  line-height: 1.8;
+  line-height: 1.9;
 
-  font-size: 0.98rem;
+  font-size: 1.05rem;
 }
-
 /* Placeholder */
 
 .placeholder-text {
