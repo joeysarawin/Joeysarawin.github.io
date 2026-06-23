@@ -55,10 +55,10 @@ for (let i = 0; i < 6; i++) {
   );
 
   shootingStar.style.top =
-    `${Math.random() * 60}%`;
+    `${Math.random() * 25}%`;
 
   shootingStar.style.left =
-    `${Math.random() * 100}%`;
+    `${80 + Math.random() * 20}%`;
 
   shootingStar.style.animationDuration =
     `${Math.random() * 4 + 4}s`;
