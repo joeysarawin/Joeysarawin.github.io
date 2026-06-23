@@ -497,3 +497,300 @@ h1 {
     90deg,
     rgba(255, 210, 120, 0.9),
     transparent
+  );
+}
+
+.category-title {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Horizontal scroll */
+
+.experience-scroll {
+  display: flex;
+  gap: 22px;
+
+  overflow-x: auto;
+  padding-bottom: 8px;
+
+  scrollbar-width: none;
+}
+
+.experience-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Experience cards */
+
+.experience-card {
+  position: relative;
+  flex: 0 0 430px;
+
+  min-height: 320px;
+  padding: 42px;
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 28px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(22, 12, 40, 0.92),
+    rgba(10, 4, 22, 0.82)
+  );
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(20px);
+}
+
+/* Card glow */
+
+.experience-card::before {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at top right, rgba(255, 210, 120, 0.14), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.18), transparent 42%);
+}
+
+/* Card content */
+
+.card-label {
+  margin-bottom: 18px;
+
+  color: rgba(255, 210, 120, 0.9);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.experience-card h3 {
+  margin: 0 0 20px;
+
+  font-size: 2rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.experience-card p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* Placeholder */
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.48);
+  font-style: italic;
+}
+
+/* Contact section */
+
+.contact-section {
+  position: relative;
+
+  width: min(100% - 140px, 1400px);
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: 120px 0 180px;
+}
+
+.contact-container {
+  max-width: 1100px;
+}
+
+/* Contact grid */
+
+.contact-grid {
+  display: flex;
+  justify-content: flex-start;
+
+  margin-top: 50px;
+}
+
+/* Contact card */
+
+.contact-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+  padding: 42px 36px;
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 32px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(22, 12, 40, 0.88),
+    rgba(8, 4, 18, 0.94)
+  );
+
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* Glow */
+
+.contact-card::before {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at top right, rgba(255, 210, 120, 0.14), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.18), transparent 42%);
+}
+
+/* Hover */
+
+.contact-card:hover {
+  border-color: rgba(255, 210, 120, 0.18);
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.42);
+  transform: translateY(-6px);
+}
+
+/* Contact text */
+
+.contact-card h3 {
+  margin: 18px 0 0;
+
+  color: white;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+/* Click sparks */
+
+.click-spark {
+  position: fixed;
+  z-index: 99999;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background: rgba(255, 220, 140, 1);
+
+  box-shadow:
+    0 0 12px rgba(255, 210, 120, 1),
+    0 0 24px rgba(168, 85, 247, 0.7);
+
+  animation: sparkBurst 700ms ease-out forwards;
+}
+
+/* Spark animation */
+
+@keyframes sparkBurst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(
+      calc(var(--x) * 90px),
+      calc(var(--y) * 90px)
+    ) scale(0);
+
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 860px) {
+  .floating-nav {
+    gap: 18px;
+    padding: 14px 18px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .hero {
+    padding-left: 24px;
+  }
+
+  .contact-section {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 640px) {
+  .floating-nav {
+    justify-content: flex-start;
+
+    width: calc(100% - 20px);
+    max-width: none;
+    overflow-x: auto;
+  }
+
+  .nav-links {
+    flex-shrink: 0;
+  }
+
+  .hero,
+  .experience-section {
+    width: calc(100% - 28px);
+  }
+
+  .hero {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .experience-heading {
+    margin-bottom: 50px;
+  }
+
+  .experience-card {
+    flex-basis: 88%;
+    min-height: 280px;
+    padding: 32px;
+  }
+
+  .contact-section {
+    width: calc(100% - 28px);
+    padding: 80px 0 120px;
+  }
+}
