@@ -297,33 +297,21 @@ a {
 /* Shooting star animation */
 
 @keyframes shootingStar {
-
   0% {
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(25deg);
-
+    transform: translateX(0) translateY(0) rotate(-25deg);
     opacity: 0;
   }
 
-  8% {
-    opacity: 1;
-  }
-
-  30% {
+  8%, 30% {
     opacity: 1;
   }
 
   100% {
-    transform:
-      translateX(1200px)
-      translateY(420px)
-      rotate(25deg);
-
+    transform: translateX(1200px) translateY(-420px) rotate(-25deg);
     opacity: 0;
   }
 }
+
 /* Main */
 
 main {
