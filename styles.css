@@ -210,10 +210,9 @@ a {
   }
 
   100% {
-    transform: translateX(1200px) translateY(-420px) rotate(-25deg);
+    transform: translateX(1200px) translateY(420px) rotate(-25deg);
     opacity: 0;
   }
-}
 
 /* Main */
 
